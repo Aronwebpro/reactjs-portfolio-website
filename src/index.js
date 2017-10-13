@@ -10,9 +10,9 @@ import './css/index.css';
 
 
 //Components
-import Home from './components/Home';
-import NotFound from './components/notfound';
-import Projects from './components/Projects';
+import Home from './components/Home.jsx';
+import NotFound from './components/notfound.jsx';
+import Projects from './components/Projects.jsx';
 
 
 const Root = () => {
