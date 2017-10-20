@@ -15,7 +15,10 @@ import NotFound from './components/notfound.jsx';
 import Projects from './components/Projects.jsx';
 
 
+
+
 const Root = () => {
+
 	return (
 		<BrowserRouter>
 			<div>
