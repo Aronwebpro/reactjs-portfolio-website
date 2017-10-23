@@ -12,14 +12,7 @@ import Home from './components/Home.jsx';
 import NotFound from './components/notfound.jsx';
 import Projects from './components/Projects.jsx';
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> fd446c8339e5dfee35c5cefddee2d31d6c4e28ce
 const Root = () => {
-
 	return (
 		<BrowserRouter>
 			<div>
