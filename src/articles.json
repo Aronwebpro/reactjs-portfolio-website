@@ -1,36 +1,33 @@
 [
-    {
-      "title": "Web Design-",
-      "img": "http://aaronwebpro.com/images/hero-img/responsive-design.png",
-      "description": "Customers interact and experience with your website more than any other aspect of your business. Many times it's their first connection with you. With our beautiful and functional designs, we'll make sure you make a great impression.",
-      "key_points": [
-        "Best user experience practices;",
-        "Online business strategies;",
-        "Quality, clean, professional website design;",
-        "Affordable prices;"
-      ]
-    },
-    {
-      "title": "Developing-",
-      "img": "http://aaronwebpro.com/images/hero-img/web-developing.png",
-      "description": "This stage of your website project process where the strategy, design, and planning converge. We utilize an efficient development methodology where using newsiest web technologies creating websites fast, high quality and performance. Easy to manage and ability to add any functionality if will be required. We continue to provide ongoing support, maintenance, and enhancements after launch.",
-      "key_points": [
-        "The most popular CMS;",
-        "High performance;",
-        "Newiest technologies;",
-        "Functionalities for your needs;"
-      ]
-    },
-    {
-      "title": "Search engine optimization-",
-      "img": "http://aaronwebpro.com/images/hero-img/analytics.png",
-      "description": "Search engine optimization helps strengthen your visibility across major search engines and increases the number of visitors to your site who are searching for services or products like yours. SEO includes website audit, competitive analysis, keyphrase analysis and ranks. Discovers the state of your website and social media relative to your competition, and identifies the activities and key phrases on which to focus.",
-      "key_points": [
-        "Best key phrases;",
-        "Links building;",
-        "Google Adwords;",
-        "Traffic analytics tools;"
-      ]
-    }
-
+  {
+    "title": "Web Design-",
+    "img": "http://aaronwebpro.com/images/hero-img/responsive-design.png",
+    "description":
+      "Customers interact and experience with your website more than any other aspect of your business. Many times it's their first connection with you. With our beautiful and functional designs, we'll make sure you make a great impression.",
+    "key_points": [
+      "Best user experience practices;",
+      "Online business strategies;",
+      "Quality, clean, professional website design;",
+      "Affordable prices;"
+    ]
+  },
+  {
+    "title": "Developing-",
+    "img": "http://aaronwebpro.com/images/hero-img/web-developing.png",
+    "description":
+      "This stage of your website project process where the strategy, design, and planning converge. We utilize an efficient development methodology where using newsiest web technologies creating websites fast, high quality and performance. Easy to manage and ability to add any functionality if will be required. We continue to provide ongoing support, maintenance, and enhancements after launch.",
+    "key_points": [
+      "The most popular CMS;",
+      "High performance;",
+      "Newiest technologies;",
+      "Functionalities for your needs;"
+    ]
+  },
+  {
+    "title": "Search engine optimization-",
+    "img": "http://aaronwebpro.com/images/hero-img/analytics.png",
+    "description":
+      "Search engine optimization helps strengthen your visibility across major search engines and increases the number of visitors to your site who are searching for services or products like yours. SEO includes website audit, competitive analysis, keyphrase analysis and ranks. Discovers the state of your website and social media relative to your competition, and identifies the activities and key phrases on which to focus.",
+    "key_points": ["Best key phrases;", "Links building;", "Google Adwords;", "Traffic analytics tools;"]
+  }
 ]
