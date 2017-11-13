@@ -6,6 +6,10 @@ import registerServiceWorker from './registerServiceWorker';
 
 //Styles
 import './css/index.css';
+//Styles
+import './css/helpers.css';
+import './css/App.css';
+import './css/style.css';
 
 //Components
 import Home from './components/Home.jsx';

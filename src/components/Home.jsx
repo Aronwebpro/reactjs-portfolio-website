@@ -6,10 +6,6 @@ import HeroImg from './hero_img';
 import PropTypes from 'prop-types';
 import base from '../base';
 
-//Styles
-import '../css/App.css';
-import '../css/style.css';
-
 class Home extends React.Component {
 	constructor() {
 		super();
