@@ -85,8 +85,7 @@ class ModelScroller extends Component {
 			// if (this.left % 100 != 0) {
 			// 	this.moving_space.style.transition = 'none';
 			// 	this.moving_space.style.left = this.left - this.left % 100 + '%';
-			// 	setTimeout(function () {
-			// 		return _this3.moving_space.style.transition = 'left 0.7s';
+			// 	setTimeout(function () {git 
 			// 	}, 100);
 			// }
 
