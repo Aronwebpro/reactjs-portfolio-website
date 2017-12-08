@@ -33,10 +33,14 @@ const HomeContent = props => {
 					<ModelScroller
 						count={5}
 						items={[
-							{
-								title: '',
-								imgPath: ''
-							}
+							{title: '',	imgPath: ''},
+							{title: '',	imgPath: ''},
+							{title: '',	imgPath: ''},
+							{title: '',	imgPath: ''},
+							{title: '',	imgPath: ''},
+							{title: '',	imgPath: ''},
+							{title: '',	imgPath: ''},
+							{title: '',	imgPath: ''}
 						]}
 					/>
 				</div>

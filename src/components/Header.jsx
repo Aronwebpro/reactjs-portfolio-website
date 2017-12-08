@@ -18,7 +18,7 @@ class Header extends Component {
 		window.addEventListener('scroll', this.stickHeader);
 	}
 	componentWillUnmount() {
-		window.removeEventListener('scroll', this.stickHeader);
+		//window.removeEventListener('scroll', this.stickHeader);
 	}
 	stickHeader() {
 		const top = window.scrollY;
