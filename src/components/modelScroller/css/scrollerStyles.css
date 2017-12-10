@@ -35,6 +35,7 @@
   position: absolute;
   left: 0px;
   transition: left ease-out 0.7s;
+  width: 2000%;
 }
 .model_scroller .item_space .moving_space .item {
 }
