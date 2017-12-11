@@ -1,0 +1,58 @@
+[
+	{
+		"id": 0,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	},
+	{
+		"id": 1,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	},
+	{
+		"id": 2,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	},
+	{
+		"id": 3,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	},
+	{
+		"id": 4,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	},
+	{
+		"id": 5,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	},
+	{
+		"id": 6,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	},
+	{
+		"id": 7,
+		"title": "This is Title",
+		"adTitle": "Additional Title",
+		"imgPath": "https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png",
+		"altImg": "Img Alternative"
+	}
+]

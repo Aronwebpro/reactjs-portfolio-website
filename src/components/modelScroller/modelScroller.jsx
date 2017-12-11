@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Item from './itemCard';
+import PropTypes from 'prop-types';
 
 /* Import Compenet styles*/
 import './css/scrollerStyles.css';
@@ -12,34 +13,40 @@ class ModelScroller extends Component {
 		this.resize = this.resize.bind(this);
 		this.next = this.next.bind(this);
 		this.prev = this.prev.bind(this);
+		this.countCal = this.countCal.bind(this);
 		this.items = this.props.items;
+	}
+	countCal(width, lockedCount) {
+		switch (true) {
+			case width < 420:
+				return 1;
+				break;
+			case width < 550:
+				return 2;
+				break;
+			case width < 800:
+				return 3;
+				break;
+			case width < 1050:
+				return 4;
+				break;
+			case width > 1050:
+				return lockedCount;
+				break;
+			default:
+				return lockedCount;
+		}
 	}
 	setWidth(scroller) {
 		//onload Set default constant to help in Resize function
-		const lockedCount = this.count;
-		var lockedWidth = this.item.tile.clientWidth;
+		//const lockedCount = this.count;
+		//var lockedWidth = this.item.tile.clientWidth;
 
 		//set how many to show depending from viewport
-		switch (true) {
-			case this.viewport.clientWidth < 420:
-				this.count = 1;
-				break;
-			case this.viewport.clientWidth < 550:
-				this.count = 2;
-				break;
-			case this.viewport.clientWidth < 800:
-				this.count = 3;
-				break;
-			case this.viewport.clientWidth < 1050:
-				this.count = 4;
-				break;
-			case this.viewport.clientWidth > 1050:
-				this.count = lockedCount;
-				break;
-		}
+		this.count = this.countCal(this.viewport.clientWidth, 5);
 
 		//onload Set Inventory Item width
-		let toalItems = this.props.items.length;
+		let toalItems = this.items.length;
 		let itemWidth = 100 / toalItems + '%';
 		this.itemWidth = { width: itemWidth };
 
@@ -47,51 +54,41 @@ class ModelScroller extends Component {
 		let spaceWidth = toalItems / this.count * 100 + '%';
 		this.spaceWidth = spaceWidth;
 	}
-	resize(item, lockedWidth, lockedCount) {
+	resize() {
 		//Set Inventory Number to display depending on ViewPort
-		switch (true) {
-			case this.viewport.clientWidth < 420:
-				this.count = 1;
-				break;
-			case this.viewport.clientWidth < 550:
-				this.count = 2;
-				break;
-			case this.viewport.clientWidth < 800:
-				this.count = 3;
-				break;
-			case this.viewport.clientWidth < 1050:
-				this.count = 4;
-				break;
-			case this.viewport.clientWidth > 1050:
-				this.count = lockedCount;
-				break;
-		}
+		this.count = this.countCal(this.viewport.clientWidth, 5);
+
 		// Reset moving_space Width
-		this.movingSpace.style.width = this.props.items.length / this.count * 100 + '%';
+		this.movingSpace.style.width = this.items.length / this.count * 100 + '%';
 
 		//Get Left property and moving_space width
 		this.left = parseInt(this.movingSpace.style.left, 10);
-		let spaceWidth = this.props.items.length * 100 / this.count;
+		let spaceWidth = this.items.length * 100 / this.count;
 		let itemLength = parseInt(this.item.props.width.width);
 
-		//Recalculate Left property for moving_space
-		// if (-this.left + 100 > spaceWidth || this.count > 4 && -(this.left * 2) > spaceWidth || -this.left > spaceWidth - this.count * itemLength) {
-		// 	this.moving_space.style.transition = 'none';
-		// 	this.moving_space.style.left = -(spaceWidth - 100) + '%';
-		// 	setTimeout(function () {
-		// 		return _this3.moving_space.style.transition = 'left 0.7s';
-		// 	}, 100);
-		// }
+		//Recalculate Left property for movingSpace
+		if (
+			-this.left + 100 > spaceWidth ||
+			(this.count > 4 && -(this.left * 2) > spaceWidth) ||
+			-this.left > spaceWidth - this.count * itemLength
+		) {
+			this.movingSpace.style.transition = 'none';
+			this.movingSpace.style.left = -(spaceWidth - 100) + '%';
+			setTimeout(() => {
+				return (this.movingSpace.style.transition = 'left 0.7s');
+			}, 100);
+		}
 
-		// if (this.left % 100 != 0) {
-		// 	this.moving_space.style.transition = 'none';
-		// 	this.moving_space.style.left = this.left - this.left % 100 + '%';
-		// 	setTimeout(function () {git
-		// 	}, 100);
-		// }
+		if (this.left % 100 !== 0) {
+			this.movingSpace.style.transition = 'none';
+			this.movingSpace.style.left = this.left - this.left % 100 + '%';
+			setTimeout(() => {
+				return (this.movingSpace.style.transition = 'left 0.7s');
+			}, 100);
+		}
 
-		// //change btn animation
-		// this.btnAnimation();
+		//change btn animation
+		this.btnAnimation();
 	}
 	next() {
 		//set left and stop properties
@@ -116,7 +113,7 @@ class ModelScroller extends Component {
 		this.left = parseInt(this.movingSpace.style.left, 10);
 
 		//change btn animation
-		// this.btnAnimation();
+		this.btnAnimation();
 	}
 	prev() {
 		//get Left Property of moving_space
@@ -142,19 +139,43 @@ class ModelScroller extends Component {
 		this.left = parseInt(this.movingSpace.style.left, 10);
 
 		//change btn animation
-		//this.btnAnimation();
+		this.btnAnimation();
+	}
+	btnAnimation() {
+		let left = parseInt(this.movingSpace.style.left, 10);
+		var stop = -((this.items.length - this.count) / this.count) * 100;
+
+		if (Math.floor(-left) === Math.floor(-stop)) {
+			this.nextBtn.classList.add('passive');
+		}
+		if (-left === 0) {
+			this.prevBtn.classList.add('passive');
+			this.nextBtn.classList.remove('passive');
+		}
+		if (-left > 0) {
+			this.prevBtn.classList.remove('passive');
+		}
+		if (Math.floor(-left) < Math.floor(-stop)) {
+			this.nextBtn.classList.remove('passive');
+		}
+		if (this.items.length <= this.count) {
+			this.prevBtn.classList.add('btn-hidden');
+			this.nextBtn.classList.add('btn-hidden');
+		} else {
+			this.prevBtn.classList.remove('btn-hidden');
+			this.nextBtn.classList.remove('btn-hidden');
+		}
 	}
 
 	/*******************/
 	componentDidMount() {
-		this.setWidth();
 		window.addEventListener('resize', this.resize);
+		this.setWidth();
 	}
 	/*******************/
-	componentWillMount() {}
 	render() {
 		return (
-			<div id="scroller" className="scroller model_scroller" ref={input => (this.scroller = input)}>
+			<div id={this.props.id} className="scroller model_scroller" ref={input => (this.scroller = input)}>
 				<div
 					ref={input => (this.prevBtn = input)}
 					onClick={this.prev}
@@ -167,8 +188,19 @@ class ModelScroller extends Component {
 						ref={input => (this.movingSpace = input)}
 						style={{ width: this.spaceWidth, left: '0%' }}
 					>
-						{this.props.items.map(item => {
-							return <Item key={Math.random()} ref={input => (this.item = input)} width={this.itemWidth} />;
+						{this.items.map(item => {
+							return (
+								<Item
+									key={item.id}
+									title={item.title}
+									adTitle={item.adTitle}
+									img={item.imgPath}
+									alt={item.altImg}
+									link={item.link}
+									ref={input => (this.item = input)}
+									width={this.itemWidth}
+								/>
+							);
 						})}
 					</div>
 				</div>
@@ -182,5 +214,11 @@ class ModelScroller extends Component {
 		);
 	}
 }
+
+ModelScroller.PropTypes = {
+	id: PropTypes.string,
+	count: PropTypes.number,
+	items: PropTypes.array
+};
 
 export default ModelScroller;

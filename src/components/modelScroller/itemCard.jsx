@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Item extends Component {
-	constructor() {
-		super();
-	}
 	render() {
 		return (
 			<div
@@ -14,29 +12,36 @@ class Item extends Component {
 				style={this.props.width}
 			>
 				<div className="item model_scroller_item">
-					<div className="scroller-img-wrapper" style={{ maxWidth: '350px' }}>
-						<img
-							className="loaded"
-							src="https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png"
-							alt="Img Alternative"
-						/>
-					</div>
-					<ul className="scroller-title">
-						<li className="details-title">
-							<a className="text-color" href="_blank">
-								Your Model
-							</a>
-						</li>
-						<li className="">
-							<a className="text-color scroller-price" href="_blank">
-								Additional Title
-							</a>
-						</li>
-					</ul>
+					<a className="text-color" href={this.props.link || '#'}>
+						<div className="scroller-img-wrapper" style={{ maxWidth: '350px' }}>
+							<img
+								className="loaded"
+								src="https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png"
+								alt={this.props.alt}
+							/>
+						</div>
+						<ul className="scroller-title">
+							<li className="details-title">
+								<div>{this.props.title}</div>
+							</li>
+							<li className="">
+								<div className="scroller-price">{this.props.adTitle}</div>
+							</li>
+						</ul>
+					</a>
 				</div>
 			</div>
 		);
 	}
 }
+
+Item.PropTypes = {
+	key: PropTypes.number.required,
+	title: PropTypes.string.required,
+	adTitle: PropTypes.string,
+	img: PropTypes.string.required,
+	link: PropTypes.string,
+	alt: PropTypes.string
+};
 
 export default Item;

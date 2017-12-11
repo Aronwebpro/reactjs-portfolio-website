@@ -3,7 +3,6 @@ import Header from './Header';
 import HomeContent from './contents/home_content';
 import Footer from './Footer';
 import HeroImg from './hero_img';
-import PropTypes from 'prop-types';
 import base from '../base';
 
 class Home extends React.Component {

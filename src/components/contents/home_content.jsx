@@ -1,7 +1,7 @@
 import React from 'react';
 import ArticleCard from '../mixins/_articleCard.jsx';
-import data from '../../articles.json';
 import ModelScroller from '../modelScroller/modelScroller.jsx';
+import modelItems from '../../modelItems.json';
 
 const HomeContent = props => {
 	return (
@@ -24,25 +24,13 @@ const HomeContent = props => {
 				{props.articles.map(article => <ArticleCard {...article} key={article.title} />)}
 			</section>
 			<section>
-				<div className="body-content" style={{ minHeight: '300px' }}>
-					<div className="container" style={{ color: '#000', minHeight: '50px', color: 'white' }}>
-						<h2>TECH NEWS</h2>
+				<div className="body-content">
+					<div className="fluid-container" style={{ paddingTop: '10px' }}>
+						<h2 style={{ color: '#000', display: 'block', borderBottom: '1px solid #000', minHeight: '30px' }}>
+							TECH NEWS
+						</h2>
 					</div>
-
-					<p>This is news</p>
-					<ModelScroller
-						count={5}
-						items={[
-							{title: '',	imgPath: ''},
-							{title: '',	imgPath: ''},
-							{title: '',	imgPath: ''},
-							{title: '',	imgPath: ''},
-							{title: '',	imgPath: ''},
-							{title: '',	imgPath: ''},
-							{title: '',	imgPath: ''},
-							{title: '',	imgPath: ''}
-						]}
-					/>
+					<ModelScroller id={'scroller'} count={5} items={modelItems} />
 				</div>
 			</section>
 		</div>
