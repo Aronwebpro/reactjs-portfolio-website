@@ -46,6 +46,10 @@
   margin-right: -15px;
   margin-left: -15px;
 }
+.container-fluid:before,
+.container-fluid:after,
+.container:before,
+.container:after,
 .row:before,
 .row:after {
   display: table;

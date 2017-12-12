@@ -30,7 +30,7 @@ const HomeContent = props => {
 							TECH NEWS
 						</h2>
 					</div>
-					<ModelScroller id={'scroller'} count={5} items={modelItems} />
+					<ModelScroller id={'scroller'} count={4} items={modelItems} />
 				</div>
 			</section>
 		</div>

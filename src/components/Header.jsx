@@ -55,7 +55,7 @@ class Header extends Component {
 							</h1>
 							<img src={zippyWhale} alt="" style={{ width: '70px', display: 'inline-block' }} />
 						</div>
-						<div className="menu-wrapper col-xs-8">
+						<div className="menu-wrapper col-xs-8 col-lg-6">
 							<Menu />
 						</div>
 					</div>

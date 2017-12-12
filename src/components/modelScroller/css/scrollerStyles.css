@@ -1,33 +1,19 @@
-.model_scroller .item_cont {
-  display: block;
-  float: left;
+.scroller {
+  width: 100%;
+  min-width: 245px;
+  background-color: #fff;
+  position: relative;
+  font-size: 16px;
+  margin:0;
+}
+.scroller .item_space {
+  margin: 0 auto;
+  padding: 5px 0 10px;
+  height: 14em;
+  width: 88%;
   text-align: center;
-}
-.model_scroller .prev,
-.scroller .next {
-  position: absolute;
-  top: 45px;
-  display: block;
-  width: 10%;
-  height: 30px;
-  cursor: pointer;
-}
-.model_scroller .scroller-control {
-  top: 50%;
-  transform: translateY(-50%);
-}
-.model_scroller .prev {
-  left: 0px;
-  background: transparent url('../img/scroller_prev.png') no-repeat 50% 50%;
-}
-.model_scroller .next {
-  right: 0px;
-  background: transparent url('../img/scroller_next.png') no-repeat 50% 50%;
-}
-.model_scroller .prev.inactive,
-.scroller .next.inactive {
-  opacity: 0.5;
-  filter: alpha(opacity=50);
+  position: relative;
+  overflow-x: hidden;
 }
 .model_scroller .item_space .moving_space {
   margin: 0;
@@ -37,18 +23,15 @@
   transition: left ease-out 0.7s;
   width: 2000%;
 }
-.model_scroller .item_space .moving_space .item {
+.model_scroller .item_cont {
+  display: block;
+  float: left;
+  text-align: center;
 }
 .model_scroller .item_space .item img {
   width: 95%;
   max-width: 100%;
   height: auto;
-}
-.model_scroller {
-  /*  overflow-x: hidden;
-  overflow-y: visible;*/
-  position: relative;
-  margin: 0;
 }
 .model_scroller_item ul {
   max-width: 370px;
@@ -70,21 +53,32 @@
 .scroller-img-wrapper {
   margin: auto;
 }
-.scroller {
-  width: 100%;
-  min-width: 245px;
-  background-color: #fff;
-  position: relative;
-  font-size: 16px;
+/*Scroller Navigation*/
+.model_scroller .prev,
+.scroller .next {
+  position: absolute;
+  top: 45px;
+  display: block;
+  width: 5%;
+  height: 30px;
+  cursor: pointer;
 }
-.scroller .item_space {
-  margin: 0 auto;
-  padding: 5px 0 10px;
-  height: 14em;
-  width: 80%;
-  text-align: center;
-  position: relative;
-  overflow-x: hidden;
+.model_scroller .scroller-control {
+  top: 50%;
+  transform: translateY(-50%);
+}
+.model_scroller .prev {
+  left: 0px;
+  background: transparent url('../img/scroller_prev.png') no-repeat 50% 50%;
+}
+.model_scroller .next {
+  right: 0px;
+  background: transparent url('../img/scroller_next.png') no-repeat 50% 50%;
+}
+.model_scroller .prev.inactive,
+.scroller .next.inactive {
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 /*Extras*/
 .scroller-title {

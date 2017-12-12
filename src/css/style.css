@@ -58,37 +58,101 @@ a:active {
 
 /* ********************* Navigation *********************************** */
 .menu-wrapper {
-	height: 100%;
-}
-.menu {
-	font-size: 1.3em;
-	font-weight: 500;
+	padding-left: 0;
+	padding-right: 0;
 	text-align: right;
-	margin-right: 15%;
-	height: 100%;
 }
-.menu ul {
+
+.menu ul, .menu p {
+	margin:auto;
 	padding: 0;
-	margin: 0;
-	height: 100%;
 }
+
 .menu ul li {
 	text-align: center;
 	display: inline-block;
 	width: 15%;
 	border-right: 1px solid rgba(255, 255, 255, 0.1);
-	height: 100%;
+	height: 70px;
 }
-
 .menu ul li a {
 	width: 100%;
-	position: static;
-	display: block;
-	height: 100%;
-	padding-top: 12.5%;
-	font-size: 0.8em;
+	height: 70px;
+	display: inline-block;
 }
-.menu ul li a:hover {
+.menu ul li a p {
+	position: relative;
+	top:32%;
+	
+}
+@media all and (max-width:992px) {
+	.menu ul li{
+		font-size: 0.9em;
+		width: 17%;
+	}
+	.header-body-inner {
+		margin-top: -2px;
+	}
+}
+@media all and (max-width:769px) {
+	.menu ul li{
+		width: 20%;
+		font-size: 0.85em;
+	}
+	.login-wrapper input {
+		width: 27%;
+	}
+}
+@media all and (max-width:600px) {
+	.login-wrapper {
+		visibility: hidden;
+		height: 15px;
+		display: none;
+	}
+	.menu {
+		display: none;
+	}
+}
+
+
+/*.menu-wrapper {*/
+
+/*}*/
+/*.menu {*/
+/*	font-size: 1.3em;*/
+/*	font-weight: 500;*/
+/*	text-align: right;*/
+/*	margin-right: 15%;*/
+
+/*}*/
+/*.menu ul {*/
+/*	padding: 0;*/
+/*	margin: 0;*/
+
+/*}*/
+/*.menu ul li {*/
+/*	text-align: center;*/
+/*	display: inline-block;*/
+/*	width: 15%;*/
+/*	border-right: 1px solid rgba(255, 255, 255, 0.1);*/
+
+/*}*/
+
+/*.menu ul li a {*/
+/*	width: 100%;*/
+/*	position: static;*/
+/*	display: block;*/
+/*	height: 70px;*/
+/*	font-size: 0.8em;*/
+/*}*/
+/*.menu ul li a:after {*/
+/*	content:'';*/
+/*	display: table;*/
+/*}*/
+/*.menu ul li a p {*/
+/*		position:relative;*/
+/*}*/
+.menu ul li:hover {
 	transition: all 0.5s;
 	background: transparent;
 	background: linear-gradient(90deg, #ffba67 0%, #fdca70 20%, #bdbf6d 60%, #ed7061 85%, #7db5da 95%) fixed;

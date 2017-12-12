@@ -16,7 +16,7 @@ class Item extends Component {
 						<div className="scroller-img-wrapper" style={{ maxWidth: '350px' }}>
 							<img
 								className="loaded"
-								src="https://assets.mbusa.com/vcm/MB/DigitalAssets/Vehicles/Showroom2/2017/NEW/2017-C-SEDAN-AV-D.png"
+								src={this.props.img}
 								alt={this.props.alt}
 							/>
 						</div>

@@ -20,30 +20,21 @@ class ModelScroller extends Component {
 		switch (true) {
 			case width < 420:
 				return 1;
-				break;
-			case width < 550:
+			case width < 600:
 				return 2;
-				break;
-			case width < 800:
+			case width < 850:
 				return 3;
-				break;
 			case width < 1050:
 				return 4;
-				break;
 			case width > 1050:
 				return lockedCount;
-				break;
 			default:
 				return lockedCount;
 		}
 	}
 	setWidth(scroller) {
-		//onload Set default constant to help in Resize function
-		//const lockedCount = this.count;
-		//var lockedWidth = this.item.tile.clientWidth;
-
 		//set how many to show depending from viewport
-		this.count = this.countCal(this.viewport.clientWidth, 5);
+		this.count = this.countCal(this.viewport.clientWidth, this.props.count);
 
 		//onload Set Inventory Item width
 		let toalItems = this.items.length;
@@ -56,7 +47,7 @@ class ModelScroller extends Component {
 	}
 	resize() {
 		//Set Inventory Number to display depending on ViewPort
-		this.count = this.countCal(this.viewport.clientWidth, 5);
+		this.count = this.countCal(this.viewport.clientWidth, this.props.count);
 
 		// Reset moving_space Width
 		this.movingSpace.style.width = this.items.length / this.count * 100 + '%';
@@ -64,7 +55,7 @@ class ModelScroller extends Component {
 		//Get Left property and moving_space width
 		this.left = parseInt(this.movingSpace.style.left, 10);
 		let spaceWidth = this.items.length * 100 / this.count;
-		let itemLength = parseInt(this.item.props.width.width);
+		let itemLength = parseInt(this.item.props.width.width, 10);
 
 		//Recalculate Left property for movingSpace
 		if (
@@ -166,7 +157,6 @@ class ModelScroller extends Component {
 			this.nextBtn.classList.remove('btn-hidden');
 		}
 	}
-
 	/*******************/
 	componentDidMount() {
 		window.addEventListener('resize', this.resize);

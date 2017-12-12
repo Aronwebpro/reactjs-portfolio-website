@@ -5,19 +5,19 @@ const Menu = () => {
 		<nav className="menu">
 			<ul>
 				<li>
-					<a href="">Home</a>
+					<a href=""><p>Home</p></a>
 				</li>
 				<li>
-					<a href="">About</a>
+					<a href=""><p>About</p></a>
 				</li>
 				<li>
-					<a href="">Service</a>
+					<a href=""><p>Service</p></a>
 				</li>
 				<li>
-					<a href="">Porfolio</a>
+					<a href=""><p>Porfolio</p></a>
 				</li>
 				<li>
-					<a href="">Contact Us</a>
+					<a href=""><p>Contact Us</p></a>
 				</li>
 			</ul>
 		</nav>
