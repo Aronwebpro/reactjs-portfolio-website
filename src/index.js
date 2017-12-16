@@ -4,7 +4,6 @@ import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
 
-
 //Styles
 import './css/helpers.css';
 import './css/style.css';
