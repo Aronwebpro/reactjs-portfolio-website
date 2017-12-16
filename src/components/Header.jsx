@@ -49,13 +49,13 @@ class Header extends Component {
 
 				<div className="header-body">
 					<div className="header-body-inner">
-						<div className="title-wrapper col-xs-4">
+						<div className="title-wrapper col-xs-5 col-md-4">
 							<h1 style={{ display: 'inline-block' }}>
 								ZIPPY <span style={{ color: 'red' }}>WHALE</span>
 							</h1>
-							<img src={zippyWhale} alt="" style={{ width: '70px', display: 'inline-block' }} />
+							<img src={zippyWhale} alt="logo" id="site-logo"  />
 						</div>
-						<div className="menu-wrapper col-xs-8 col-lg-6">
+						<div className="menu-wrapper col-xs-7 col-md-8 col-lg-6">
 							<Menu />
 						</div>
 					</div>

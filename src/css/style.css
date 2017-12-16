@@ -85,6 +85,11 @@ a:active {
 	top:32%;
 	
 }
+img#site-logo {
+	width: 65px;
+	display: inline-block;
+}
+
 @media all and (max-width:992px) {
 	.menu ul li{
 		font-size: 0.9em;
@@ -92,6 +97,9 @@ a:active {
 	}
 	.header-body-inner {
 		margin-top: -2px;
+	}
+	.title-wrapper h1 {
+		font-size:1.5em;
 	}
 }
 @media all and (max-width:769px) {
@@ -102,6 +110,14 @@ a:active {
 	.login-wrapper input {
 		width: 27%;
 	}
+	img#site-logo {
+		width: 50px;
+	}
+}
+@media all and (max-width:640px) {
+	.menu ul li{
+		font-size: 0.8em;
+	}	
 }
 @media all and (max-width:600px) {
 	.login-wrapper {
@@ -166,19 +182,19 @@ header {
 	width: 100%;
 	transition: all 0.7s;
 }
-#logo {
-	height: 80px;
-	width: 100%;
-	background-color: rgba(255, 255, 255, 0.93);
+/*#logo {*/
+/*	height: 80px;*/
+/*	width: 100%;*/
+/*	background-color: rgba(255, 255, 255, 0.93);*/
 	/* position: absolute; */
-	left: 0;
-	margin: 0;
-	color: #0e3757;
-	text-align: left;
+/*	left: 0;*/
+/*	margin: 0;*/
+/*	color: #0e3757;*/
+/*	text-align: left;*/
 	/* border-bottom: 2px solid white; */
-	z-index: 10;
-	border-bottom: 1px solid var(--base);
-}
+/*	z-index: 10;*/
+/*	border-bottom: 1px solid var(--base);*/
+/*}*/
 
 .top-row {
 	display: block;
@@ -197,7 +213,7 @@ header {
 }
 .login-wrapper {
 	color: #000;
-	padding: 7px 6px;
+	padding: 9px 11px;
 	margin-right: 2%;
 }
 .login-wrapper label {
@@ -225,7 +241,8 @@ header {
 	font-family: 'Cormorant', serif;
 }
 .title-wrapper img {
-	margin-left: 1%;
+	margin-left: 3%;
+	transform: translateY(25%);
 }
 
 /*Hero Image */
@@ -253,18 +270,22 @@ header {
 		min-height: 700px;
 	}
 }
-
+*/
 @media screen and (max-width: 991px) {
-	#first-section {
-		min-height: 1500px;
+	#hero-img {
+		min-height: 1185px;
 	}
 }
 
 @media screen and (max-width: 767px) {
-	#first-section {
-		min-height: 1200px;
+	.title-wrapper h1 {
+		margin-left:1%;
+		padding-top: 20px;
 	}
-}*/
+	#hero-img {
+			
+	}
+}
 
 #front-panel {
 	min-height: 300px;
@@ -316,6 +337,7 @@ header {
 	#logo h1 {
 		font-size: 1.9em;
 	}
+	
 }
 
 #front-panel li {
@@ -350,10 +372,12 @@ header {
 	transition: all 0.7s;
 }
 
-@media screen and (max-width: 767px) {
-	.front-columns {
-		font-size: 0.9em;
+@media screen and (max-width: 992px) {
+	.front-columns p {
+		font-size: 1.5em;
 	}
+	
+
 }
 
 #design {
@@ -540,18 +564,18 @@ header {
 	-webkit-transform: scale(1.1); 
 	transform: scale(1.1);
 }*/
-@media screen and (max-width: 769px) {
-	.body-content:hover {
-		-ms-transform: scale(1); /* IE 9 */
-		-webkit-transform: scale(1); /* Safari */
-		transform: scale(1);
-	}
-	.body-content:active {
-		-ms-transform: scale(1.1); /* IE 9 */
-		-webkit-transform: scale(1.1); /* Safari */
-		transform: scale(1.1);
-	}
-}
+/*@media screen and (max-width: 769px) {*/
+/*	.body-content:hover {*/
+/*		-ms-transform: scale(1); */
+/*		-webkit-transform: scale(1);*/
+/*		transform: scale(1);*/
+/*	}*/
+/*	.body-content:active {*/
+/*		-ms-transform: scale(1.1); */
+/*		-webkit-transform: scale(1.1); */
+/*		transform: scale(1.1);*/
+/*	}*/
+/*}*/
 button,
 .btn,
 .btn-default {
