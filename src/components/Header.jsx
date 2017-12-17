@@ -24,7 +24,7 @@ class Header extends Component {
 		const top = window.scrollY;
 		if (top > 100) {
 			this.setState({
-				top: '-42px'
+				top: '-45px'
 			});
 		} else {
 			this.setState({
@@ -49,13 +49,13 @@ class Header extends Component {
 
 				<div className="header-body">
 					<div className="header-body-inner">
-						<div className="title-wrapper col-xs-5 col-md-4">
+						<div className="title-wrapper col-xxs-10 col-xs-5 col-sm-5">
 							<h1 style={{ display: 'inline-block' }}>
 								ZIPPY <span style={{ color: 'red' }}>WHALE</span>
 							</h1>
-							<img src={zippyWhale} alt="logo" id="site-logo"  />
+							<img src={zippyWhale} alt="logo" id="site-logo" />
 						</div>
-						<div className="menu-wrapper col-xs-7 col-md-8 col-lg-6">
+						<div className="menu-wrapper col-xxs-7 col-xs-7 col-sm-7 col-lg-6">
 							<Menu />
 						</div>
 					</div>

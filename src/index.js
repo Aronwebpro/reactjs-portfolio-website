@@ -11,14 +11,14 @@ import './css/style.css';
 //Components
 import Home from './components/Home.jsx';
 import NotFound from './components/notfound.jsx';
-import Projects from './components/Projects.jsx';
+import Service from './components/Service.jsx';
 
 const Root = () => {
 	return (
 		<BrowserRouter>
 			<div>
 				<Match exactly pattern="/" component={Home} />
-				<Match exactly pattern="/projects" component={Projects} />
+				<Match exactly pattern="/service" component={Service} />
 				<Miss component={NotFound} />
 			</div>
 		</BrowserRouter>

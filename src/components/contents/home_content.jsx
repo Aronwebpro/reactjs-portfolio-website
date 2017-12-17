@@ -8,12 +8,12 @@ const HomeContent = props => {
 		<div className="content" style={{ minHeight: '90vh' }}>
 			<section className="content-header">
 				<div className="container">
-					<div className="col-xs-6">
+					<div className="col-xxs-6">
 						<h2>
-							Lets Get Started <span className="bold">Your Project</span>
+							Lets Get Started <span className="bold mobile-break">Your Project</span>
 						</h2>
 					</div>
-					<div className="col-xs-6 right">
+					<div className="col-xxs-6 col-get-quote">
 						<div className="quote-btn-wrapper">
 							<button className="quote-btn">Get Quote</button>
 						</div>

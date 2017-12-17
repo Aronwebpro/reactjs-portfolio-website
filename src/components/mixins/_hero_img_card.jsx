@@ -13,9 +13,9 @@ const HeroImgCard = props => {
 		margin: '0 auto 15px'
 	};
 	return (
-		<div className="front-columns col-xs-12 col-sm-12 col-md-4">
+		<div className="front-columns col-xxs-12 col-sm-12 col-md-4">
 			<div style={imgIconConStyles}>
-				<img src={'img/' + props.article.icon} alt="Byrka" style={imgIconStyles} />
+				<img src={'img/' + props.article.icon} alt="Image" style={imgIconStyles} />
 			</div>
 			<h1>{props.article.shortTitle}</h1>
 			<p>Having a unique website design is important part of the branding and marketing process of your business</p>
