@@ -4,13 +4,13 @@
   background-color: #fff;
   position: relative;
   font-size: 16px;
-  margin:0;
+  margin: 0;
 }
 .scroller .item_space {
   margin: 0 auto;
-  padding: 5px 0 10px;
-  height: 14em;
-  width: 88%;
+  padding: 5px 0 1px;
+  height: auto;
+  width: 100%;
   text-align: center;
   position: relative;
   overflow-x: hidden;
@@ -18,7 +18,7 @@
 .model_scroller .item_space .moving_space {
   margin: 0;
   padding: 0;
-  position: absolute;
+  position: relative;
   left: 0px;
   transition: left ease-out 0.7s;
   width: 2000%;
@@ -29,7 +29,7 @@
   text-align: center;
 }
 .model_scroller .item_space .item img {
-  width: 95%;
+  width: 98.5%;
   max-width: 100%;
   height: auto;
 }
@@ -59,21 +59,22 @@
   position: absolute;
   top: 45px;
   display: block;
-  width: 5%;
-  height: 30px;
+  width: 45px;
+  height: 65px;
   cursor: pointer;
 }
 .model_scroller .scroller-control {
   top: 50%;
   transform: translateY(-50%);
+  z-index: 1;
 }
 .model_scroller .prev {
-  left: 0px;
-  background: transparent url('../img/scroller_prev.png') no-repeat 50% 50%;
+  left: 3px;
+  background: rgba(0, 0, 0, 0.4) url('../img/scroller_prev2.png') no-repeat 50% 50%;
 }
 .model_scroller .next {
-  right: 0px;
-  background: transparent url('../img/scroller_next.png') no-repeat 50% 50%;
+  right: 3px;
+  background: rgba(0, 0, 0, 0.4) url('../img/scroller_next2.png') no-repeat 50% 50%;
 }
 .model_scroller .prev.inactive,
 .scroller .next.inactive {
@@ -89,7 +90,7 @@
   padding: 5px;
 }
 .passive {
-  opacity: 0.5;
+  opacity: 0.1;
 }
 .btn-hidden {
   display: none !important;

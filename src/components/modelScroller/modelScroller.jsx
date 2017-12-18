@@ -51,11 +51,12 @@ class ModelScroller extends Component {
 
 		// Reset moving_space Width
 		this.movingSpace.style.width = this.items.length / this.count * 100 + '%';
-
 		//Get Left property and moving_space width
 		this.left = parseInt(this.movingSpace.style.left, 10);
 		let spaceWidth = this.items.length * 100 / this.count;
-		let itemLength = parseInt(this.item.props.width.width, 10);
+
+		console.log(this.itemWidth);
+		let itemLength = parseInt(this.itemWidth, 10);
 
 		//Recalculate Left property for movingSpace
 		if (
@@ -161,6 +162,7 @@ class ModelScroller extends Component {
 	componentDidMount() {
 		window.addEventListener('resize', this.resize);
 		this.setWidth();
+		//this.resize();
 	}
 	/*******************/
 	render() {

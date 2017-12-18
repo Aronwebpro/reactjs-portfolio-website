@@ -13,21 +13,9 @@ class Item extends Component {
 			>
 				<div className="item model_scroller_item">
 					<a className="text-color" href={this.props.link || '#'}>
-						<div className="scroller-img-wrapper" style={{ maxWidth: '350px' }}>
-							<img
-								className="loaded"
-								src={this.props.img}
-								alt={this.props.alt}
-							/>
+						<div className="scroller-img-wrapper" style={{}}>
+							<img className="loaded" src={this.props.img} alt={this.props.alt} />
 						</div>
-						<ul className="scroller-title">
-							<li className="details-title">
-								<div>{this.props.title}</div>
-							</li>
-							<li className="">
-								<div className="scroller-price">{this.props.adTitle}</div>
-							</li>
-						</ul>
 					</a>
 				</div>
 			</div>
