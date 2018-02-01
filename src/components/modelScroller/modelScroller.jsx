@@ -55,7 +55,6 @@ class ModelScroller extends Component {
 		this.left = parseInt(this.movingSpace.style.left, 10);
 		let spaceWidth = this.items.length * 100 / this.count;
 
-		console.log(this.itemWidth);
 		let itemLength = parseInt(this.itemWidth, 10);
 
 		//Recalculate Left property for movingSpace

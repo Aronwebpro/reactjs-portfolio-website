@@ -877,3 +877,31 @@ button,
 }
 @media screen and (min-width: 1200px) {
 }
+
+.register-btn {
+	margin-left: 10px;
+    padding-left: 5px;
+    height: 100%;
+    border-left: 1px solid #a3a2a2;
+    text-decoration: none;
+}
+
+.register-wrapper {
+	display: block;
+	width: 50%;
+	margin:auto;
+}
+
+.register-form input, 
+.register-form label {
+	display: block;
+	padding: 5px;
+	width: 100%;
+}
+.register-form input[type="submit"] {
+	margin-top: 20px;
+}
+.content {
+	padding-top: 150px;
+	
+}

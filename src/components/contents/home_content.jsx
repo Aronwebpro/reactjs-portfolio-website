@@ -5,7 +5,7 @@ import modelItems from '../../modelItems.json';
 
 const HomeContent = props => {
 	return (
-		<div className="content" style={{ minHeight: '90vh' }}>
+		<div className="content" style={{ minHeight: '90vh', paddingTop: '0px' }}>
 			<section className="content-header">
 				<div className="container">
 					<div className="col-xxs-6">
