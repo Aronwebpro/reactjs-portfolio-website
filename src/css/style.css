@@ -1,7 +1,7 @@
 /*Put your style*/
 /*@import url(https://fonts.googleapis.com/css?family=Quattrocento+Sans);*/
-@import url('https://fonts.googleapis.com/css?family=Cormorant');
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,700');
+@import url('https://fonts.googleapis.com/css?family=Cormorant:500');
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,600');
 
 :root {
 	--base: #fff;
@@ -17,6 +17,7 @@ body {
 	font-family: 'Raleway', sans-serif;
 	font-size: 16px;
 	background-color: rgb(245, 245, 245);
+	font-weight: 300;
 	/*	-webkit-appearance: value;
 	-moz-appearance: value;
 	appearance: value;*/
@@ -56,6 +57,10 @@ a:active {
 	width: 100%;
 	overflow-x: hidden;
 	padding: 0;*/
+}
+.content {
+	padding-top: 150px;
+	
 }
 
 /*70 163 226*/
@@ -268,6 +273,36 @@ header {
 }
 @media screen and (max-width: 767px) {
 }
+
+/*Site Branding*/
+
+@keyframes site-title {
+    0%   {top: -50px; opacity: 0;}
+    100% {top: 50px; opacity: 1;}
+}
+
+.site-branding {
+	position: relative;
+	top:50px;
+	text-align: center;
+	color:#fff;
+	margin-top: 1%;
+	-webkit-animation: site-title 2s; /* Safari 4.0 - 8.0 */
+    animation: site-title 2s;
+}
+.site-branding h1 {
+	font-size:5em;
+	font-weight: 500;
+	font-family: Cormorant;
+	/*font-family: Raleway;*/
+}
+
+
+
+
+
+
+/*Front Panel*/
 #front-panel {
 	min-height: 300px;
 	width: 70%;
@@ -296,18 +331,36 @@ header {
 	}
 }
 @media screen and (max-width: 991px) {
-	#front-panel h1 {
-		font-size: 3em;
+	#hero-img {
+		min-height: 1325px;
+	}
+	.site-branding {
+		top:0px;
+	}
+	@keyframes site-title {
+   	 0%   {top: -50px; opacity: 0;}
+   	 100% {top: 0px; opacity: 1;}
+	}
+	.site-branding h1 {
+		font-size: 2.9em;
 	}
 	.front-listing {
 		font-size: 1.5em;
 	}
+	#front-panel {
+		top:300px;
+	}
+	#front-panel h1 {
+		font-size: 3em;
+	}
 }
 @media screen and (max-width: 767px) {
+	#hero-img {
+		min-height: 1200px;
+	}
 	#front-panel {
 		width: 90%;
 		left: 5%;
-		top: 130px;
 		bottom: 20px;
 	}
 	.front-listing {
@@ -324,10 +377,32 @@ header {
 	}
 }
 @media screen and (max-width: 500px) {
+	#hero-img {
+		min-height: 1100px;
+	}
+	#front-panel {
+		top:250px;
+	}
 	#front-panel p {
 		font-size: 1em;
 	}
+	.content {
+		padding-top: 100px;
+	}
+	.site-branding h1 {
+		font-size: 2em;
+	}
 }
+@media screen and (max-width: 350px) {
+	#hero-img {
+		min-height: 1150px;
+	}
+	.site-branding h1 {
+		font-size: 1.8em;
+	}
+
+}
+
 #front-panel li {
 	list-style: none;
 	font-size: 1.2em;
@@ -900,8 +975,4 @@ button,
 }
 .register-form input[type="submit"] {
 	margin-top: 20px;
-}
-.content {
-	padding-top: 150px;
-	
 }

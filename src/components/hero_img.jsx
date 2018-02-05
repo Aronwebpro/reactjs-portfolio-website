@@ -32,6 +32,9 @@ class HeroImg extends Component {
 				}}
 			>
 				<div className="content">
+				<div className="site-branding">
+					<h1>Welcome to The Place <br />Where Creativity Begins.</h1>
+				</div>
 					<div id="front-panel">
 						{this.props.articles.map(article => <HeroImgCard key={article.title} article={article} />)}
 					</div>
