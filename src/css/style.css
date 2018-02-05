@@ -58,10 +58,14 @@ a:active {
 	overflow-x: hidden;
 	padding: 0;*/
 }
+.page {
+
+}
 .content {
-	padding-top: 150px;
+	padding-top: 110px;
 	
 }
+
 
 /*70 163 226*/
 
@@ -142,7 +146,7 @@ img#site-logo {
 		display: none;
 	}
 	.title-wrapper {
-		width: 80%;
+		width: 100%;
 	}
 }
 
@@ -153,9 +157,28 @@ img#site-logo {
 	/*background: linear-gradient(90deg, #267570 0%, #7d3a8e 20%, #d89cb3 60%, #bb900c 85%, #3b983b 95%) fixed;*/
 }
 /*Mobile Menu ********************/
+.mobile-login_button {
+	display: none;
+}
 @media all and (max-width: 600px) {
-	.mobile-menu {
-		display: inline-block;
+	.mobile-login_button {
+		display: block;
+		float: right;
+		padding-top: 25px;
+	}
+	.mobile-login_button:after  {
+		content: '';
+		display: block;
+		clear: both;
+	}
+	.mobile-login_button a {
+		text-decoration:none;
+	}
+	.mobile-login_button a:first-of-type {
+		border-right: 1px solid rgba(255,255,255,0.6);
+		padding-right:5px;
+		margin-right: 4px;
+		color:red;
 	}
 }
 
@@ -198,7 +221,7 @@ header {
 }
 .login-wrapper {
 	color: #000;
-	padding: 9px 11px;
+	padding: 9px 0px;
 	margin-right: 2%;
 }
 .login-wrapper label {
@@ -211,13 +234,25 @@ header {
 	margin: 0 0 0 6px;
 	padding: 3px 12px;
 }
+.top-row_login {
+	color:#b52525;
+	padding: 2px;
+	margin-left:15px;
+	cursor:pointer;
+	/*border:1px solid #cdcdcd;*/
+}
+.top-row_login:hover, .top-row_login:active {
+	background-color: rgba(177, 177, 177, 0.66);
+}
 .header-body {
 	background-color: #1b1a1a;
 	color: white;
 	height: 70px;
+	transition: all 0.6s;
 }
 .header-body-inner {
-	height: 100%;
+	transition: all 0.6s;
+	/*height: 100%;*/
 }
 
 .title-wrapper h1 {
@@ -230,6 +265,11 @@ header {
 	transform: translateY(25%);
 }
 
+
+/*Home page ***********************************************************/
+.home-content {
+	margin-top: -110px; 
+}
 /*Hero Image */
 #hero-img {
 	position: relative;
@@ -246,16 +286,6 @@ header {
 	border-radius: 0.1px;
 }
 
-/*@media screen and (max-width: 1370px) {
-	#hero-img {
-		min-height: 800px;
-		top: -400px;
-	}
-	#first-section {
-		min-height: 700px;
-	}
-}
-*/
 @media screen and (max-width: 991px) {
 	#hero-img {
 		min-height: 1185px;
@@ -270,20 +300,23 @@ header {
 	#hero-img {
 		min-height: 1035px;
 	}
+	.login-wrapper input {
+		width: 22%;
+	}
 }
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 702px) {
 }
 
 /*Site Branding*/
 
 @keyframes site-title {
-    0%   {top: -50px; opacity: 0;}
-    100% {top: 50px; opacity: 1;}
+    0%   {top: 50px; opacity: 0;}
+    100% {top: 130px; opacity: 1;}
 }
 
 .site-branding {
 	position: relative;
-	top:50px;
+	top:130px;
 	text-align: center;
 	color:#fff;
 	margin-top: 1%;
@@ -296,10 +329,6 @@ header {
 	font-family: Cormorant;
 	/*font-family: Raleway;*/
 }
-
-
-
-
 
 
 /*Front Panel*/
@@ -335,11 +364,11 @@ header {
 		min-height: 1325px;
 	}
 	.site-branding {
-		top:0px;
+		top:135px;
 	}
 	@keyframes site-title {
-   	 0%   {top: -50px; opacity: 0;}
-   	 100% {top: 0px; opacity: 1;}
+   	 0%   {top: 50px; opacity: 0;}
+   	 100% {top: 135px; opacity: 1;}
 	}
 	.site-branding h1 {
 		font-size: 2.9em;
@@ -391,6 +420,13 @@ header {
 	}
 	.site-branding h1 {
 		font-size: 2em;
+	}
+	.site-branding {
+		top:100px;
+	}
+	@keyframes site-title {
+   	 0%   {top: 50px; opacity: 0;}
+   	 100% {top: 100px; opacity: 1;}
 	}
 }
 @media screen and (max-width: 350px) {

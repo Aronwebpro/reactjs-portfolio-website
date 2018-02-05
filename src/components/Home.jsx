@@ -1,7 +1,5 @@
 import React from 'react';
-import Header from './Header';
 import HomeContent from './contents/home_content';
-import Footer from './Footer';
 import HeroImg from './hero_img';
 import base from '../base';
 
@@ -27,11 +25,9 @@ class Home extends React.Component {
 
 	render() {
 		return (
-			<div className="body">
-				<Header />
+			<div className="home-content">
 				<HeroImg articles={this.state.articles} />
 				<HomeContent articles={this.state.articles} />
-				<Footer />
 			</div>
 		);
 	}

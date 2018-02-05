@@ -32,14 +32,6 @@ const Menu = () => {
 					</li>
 				</ul>
 			</nav>
-			<nav className="mobile-menu mobile">
-				<div className="hamburger">
-					<div className="row1" />
-					<div className="row2" />
-					<div className="row3" />
-				</div>
-				<div>Menu</div>
-			</nav>
 		</div>
 	);
 };

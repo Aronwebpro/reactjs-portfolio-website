@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Menu from './menu';
-import zippyWhale from '../img/zippy_whale.png';
+import Menu from '../menu/menu';
+import zippyWhale from '../../../img/zippy_whale.png';
 import axios from 'axios';
-import Flash from './mixins/flash/Flash';
+import Flash from '../../mixins/flash/Flash';
 
 class Header extends Component {
 	constructor() {
@@ -15,6 +15,9 @@ class Header extends Component {
 		this.petras = 'zigmas';
 		this.state = {
 			top: '0px',
+			headerMobile: '70px',
+			headerMobileInner: 'scale(1)',
+			headerMobileInnerMarginTop: '0px', 
 			name: '',
 			pass: '',
 			flasMessage:'', 
@@ -63,16 +66,28 @@ class Header extends Component {
 		//window.removeEventListener('scroll', this.stickHeader);
 	}
 	stickHeader() {
-		const top = window.scrollY;
-		if (top > 100) {
+
+	const top = window.scrollY;
+	if (top > 100) {
+		if(window.innerWidth <= 600) {
 			this.setState({
-				top: -this.loginRow.clientHeight+'px'
+				headerMobile: '45px',
+				headerMobileInner: 'scale(0.85)', 
+				headerMobileInnerMarginTop: '-5px'
 			});
 		} else {
 			this.setState({
-				top: '0px'
+				top: -this.loginRow.clientHeight+'px'
 			});
 		}
+	} else {
+		this.setState({
+			top: '0px',
+			headerMobile: '70px',
+			headerMobileInner: 'scale(1)' 
+		});
+	}
+		
 	}
 	flashMessage(msg, status) {
 		 if (this.state.pass == false) { 
@@ -108,25 +123,31 @@ class Header extends Component {
 						<input name="username" type="text" onChange={ this.getUserValue } value={this.state.name} />
 						<label htmlFor="">Password:</label>
 						<input name="password" type="password" onChange={ this.getPass } value={this.state.pass} />
-						<button className="btn login-btn" type="submit">
+						<a className="top-row_login" type="submit">
 							Login
-						</button>
-					</form>	
+						</a>
 						<a className="register-btn" href="/register">Register</a>
+					</form>	
+						
 					</div>
 				</div>
 
-				<div className="header-body">
-					<div className="header-body-inner">
-						<div className="title-wrapper col-xxs-10 col-xs-5 col-sm-5">
+				<div className="header-body" style={ {height:this.state.headerMobile} }>
+					<div  ref={ (input) => this.loginRow = input }  className="header-body-inner" style={ {transform:this.state.headerMobileInner } }>
+						<div className="title-wrapper col-xxs-12 col-xs-5 col-sm-5" style={ {marginTop: this.state.headerMobileInnerMarginTop } }>
 							<h1 style={{ display: 'inline-block' }}>
 								ZIPPY <span style={{ color: 'red' }}>WHALE</span>
 							</h1>
 							<img src={zippyWhale} alt="logo" id="site-logo" />
+							<div className="mobile-login_button">
+								<a href="">Login</a>
+								<a href="">Register</a>						
+							</div>
 						</div>
 						<div className="menu-wrapper col-xxs-7 col-xs-7 col-sm-7 col-lg-6">
 							<Menu />
 						</div>
+
 					</div>
 				</div>
 			</header>

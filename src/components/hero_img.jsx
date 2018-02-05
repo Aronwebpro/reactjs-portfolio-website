@@ -31,7 +31,7 @@ class HeroImg extends Component {
 					backgroundPositionY: this.state.top
 				}}
 			>
-				<div className="content">
+				<div className="">
 				<div className="site-branding">
 					<h1>Welcome to The Place <br />Where Creativity Begins.</h1>
 				</div>
