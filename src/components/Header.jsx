@@ -11,7 +11,7 @@ class Header extends Component {
 		this.stickHeader = this.stickHeader.bind(this);
 		this.getUserValue = this.getUserValue.bind(this);
 		this.getPass = this.getPass.bind(this);
-		this.flashMessage = this.flashMessage.bind(this);
+		this.flashMessage = this.flashMessage.bind(this);	
 		this.petras = 'zigmas';
 		this.state = {
 			top: '0px',
@@ -45,7 +45,7 @@ class Header extends Component {
 		.catch(err => {
 			this.setState({ flasMessage: 'Login Failed!', status:'error'});
 			setTimeout(() => { 	this.setState({status:''}) }, 4000);
-			console.log(res);
+
 			
 		});
 		

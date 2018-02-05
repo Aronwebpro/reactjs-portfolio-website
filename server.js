@@ -82,8 +82,8 @@ router.post('/login',authController.validateLogin, authController.login, authCon
 
 
 //Redirect if no match
-router.get('/', (req, res, next) => {
-	res.redirect('/petras');
+router.get('*', (req, res, next) => {
+	res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
 /*
