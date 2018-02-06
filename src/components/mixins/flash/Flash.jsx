@@ -14,7 +14,7 @@ const Flash = (props) => {
     }
     return (
         <div className="flash-wrapper" style={ {textAlign: 'center', padding:' 2px', border:'1px solid', borderColor:color } } >
-            <div className="flash"  style={ { fontWeight: 'bold', border:'3px solid', borderColor:color } }>
+            <div className="flash shake"  style={ { fontWeight: 'bold', border:'3px solid', borderColor:color } }>
                 <p>
                     {props.text}
                 </p>

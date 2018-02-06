@@ -11,8 +11,8 @@ class Header extends Component {
 		this.stickHeader = this.stickHeader.bind(this);
 		this.getUserValue = this.getUserValue.bind(this);
 		this.getPass = this.getPass.bind(this);
-		this.flashMessage = this.flashMessage.bind(this);	
-		this.petras = 'zigmas';
+		this.flash = this.flash.bind(this);
+		this.timeOut = '';
 		this.state = {
 			top: '0px',
 			headerMobile: '70px',
@@ -20,14 +20,34 @@ class Header extends Component {
 			headerMobileInnerMarginTop: '0px', 
 			name: '',
 			pass: '',
-			flasMessage:'', 
-			status: ''
+			flashMessage:'', 
+			status: '',
+			shake:''
 		};
 	}
 	login(e) {
 		e.preventDefault();
 		const name = this.state.name;
 		let pass = false;
+		//validation
+		switch(true) {
+			case this.state.name === '' && this.state.pass === '' :
+				clearTimeout(this.timeOut);
+				this.setState({flashMessage: 'Username and Password can\'t be empty!', status:'error' });
+				this.timeOut = setTimeout(() => { this.setState({status:''}) }, 4000);
+				return 
+			case this.state.name === '' :
+				clearTimeout(this.timeOut);
+				this.setState({flashMessage: 'Username can\'t be empty!', status:'error' });
+				this.timeOut = setTimeout(() => { this.setState({status:''}) }, 4000);
+				return
+			case this.state.pass === '' :
+				clearTimeout(this.timeOut);
+				this.setState({flashMessage: 'Password can\'t be empty!', status:'error' });
+				this.timeOut = setTimeout(() => { this.setState({status:''}) }, 4000);
+				return
+		}
+
 		axios
 		.post('/login', {
 			email: name,
@@ -35,10 +55,14 @@ class Header extends Component {
 		})
 		.then(res => { 
 			if(res.data.hasOwnProperty('error') || res.headers.hasOwnProperty('error')) {
-				this.setState({pass: '', errorMessage: res.data.error});
+				this.setState({pass: '', flashMessage: res.data.error});
+				clearTimeout(this.timeOut);
+				this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 4000);
 				return;
 			} else if(res.data.hasOwnProperty('success') && res.data.success === true ) {
-				this.setState({status: 'sucess', flasMessage: res.data.message});
+				this.setState({status: 'sucess', flashMessage: res.data.message});
+				clearTimeout(this.timeOut);
+				this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 4000);
 				console.log(pass);
 			}
 			console.log(res);
@@ -46,12 +70,34 @@ class Header extends Component {
 			
 		})
 		.catch(err => {
-			this.setState({ flasMessage: 'Login Failed!', status:'error'});
-			setTimeout(() => { 	this.setState({status:''}) }, 4000);
-
+			this.setState({ flashMessage: 'Login Failed!', status:'error'});
+			clearTimeout(this.timeOut);
+			this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 4000);
 			
 		});
 		
+	}
+	flash(status, message) {
+		let flash;
+		let height = '0px';
+		let opacity = '0';
+		if (status == 'success') {
+			flash = (  <Flash text={message} status={status} /> );
+			height = '80px';
+			opacity = '1';
+		} else if (status === 'error') {
+			flash = (  <Flash text={message} status={status} /> );
+			height = '80px';
+			opacity = '1';
+		} else if (status === '') {
+			flash = undefined;
+			height = '0px';
+		}
+		return (
+			<div style={ {height:height, transition: 'height 0.6s, opacity 1.5s', opacity: opacity} }>
+				{ flash }
+			</div>
+		)
 	}
 	getUserValue(e) {
 		this.setState({name: e.target.value })
@@ -61,9 +107,6 @@ class Header extends Component {
 	}
 	componentDidMount() {
 		window.addEventListener('scroll', this.stickHeader);
-	}
-	componentWillUnmount() {
-		//window.removeEventListener('scroll', this.stickHeader);
 	}
 	stickHeader() {
 		const top = window.scrollY;
@@ -87,43 +130,18 @@ class Header extends Component {
 			});
 		}
 	}
-	flashMessage(msg, status) {
-		 if (this.state.pass === false) { 
-			return ( <Flash text={msg} status={status} /> )
-		 }
-	}
-	render() {
-		let flash;
-		let height = '0px';
-		let opacity = '0';
-		if (this.state.status == 'success') {
-			flash = (  <Flash text={this.state.flasMessage} status={this.state.status} /> );
-			height = '80px';
-			opacity = '1';
-		} else if (this.state.status === 'error') {
-			flash = (  <Flash text={this.state.flasMessage} status={this.state.status} /> );
-			height = '80px';
-			opacity = '1';
-		} else if (this.state.status === '') {
-			flash = undefined;
-			height = '0px';
-		}
-		
+	render() {	
 		return (
 			<header style={{ top: this.state.top, position: 'fixed' }}>
 				<div className="top-row">
 					<div ref={ (input) => this.loginRow = input } className="login-wrapper right">
-					<div style={ {height:height, transition: 'height 0.6s, opacity 1.5s', opacity: opacity} }>
-						{ flash }
-					</div>
+					{ this.flash(this.state.status, this.state.flashMessage) }
 					<form style={ {display: 'inline-block' } } onSubmit={ this.login } >
 						<label htmlFor="username">Username:</label>
 						<input name="username" type="text" onChange={ this.getUserValue } value={this.state.name} />
 						<label htmlFor="">Password:</label>
 						<input name="password" type="password" onChange={ this.getPass } value={this.state.pass} />
-						<a className="top-row_login" type="submit">
-							Login
-						</a>
+						<input className="top-row_login" type="submit" onSubmit={ this.login } value="Login"/>
 						<a className="register-btn" href="/register">Register</a>
 					</form>	
 						
