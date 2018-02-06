@@ -13,7 +13,7 @@ import Header from './components/template/header/Header.jsx';
 import Footer from './components/template/footer/Footer.jsx';
 
 //Components
-import Home from './components/Home.jsx';
+import Home from './components/pages/home/Home.jsx';
 import NotFound from './components/notfound.jsx';
 import Service from './components/Service.jsx';
 import Register from './components/Register.jsx';

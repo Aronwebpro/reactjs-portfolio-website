@@ -66,31 +66,29 @@ class Header extends Component {
 		//window.removeEventListener('scroll', this.stickHeader);
 	}
 	stickHeader() {
-
-	const top = window.scrollY;
-	if (top > 100) {
-		if(window.innerWidth <= 600) {
-			this.setState({
-				headerMobile: '45px',
-				headerMobileInner: 'scale(0.85)', 
-				headerMobileInnerMarginTop: '-5px'
-			});
+		const top = window.scrollY;
+		if (top > 100) {
+			if (window.innerWidth <= 600) {
+				this.setState({
+					headerMobile: '45px',
+					headerMobileInner: 'scale(0.85)', 
+					headerMobileInnerMarginTop: '-5px'
+				});
+			} else {
+				this.setState({
+					top: -this.loginRow.clientHeight+'px'
+				});
+			}
 		} else {
 			this.setState({
-				top: -this.loginRow.clientHeight+'px'
+				top: '0px',
+				headerMobile: '70px',
+				headerMobileInner: 'scale(1)' 
 			});
 		}
-	} else {
-		this.setState({
-			top: '0px',
-			headerMobile: '70px',
-			headerMobileInner: 'scale(1)' 
-		});
-	}
-		
 	}
 	flashMessage(msg, status) {
-		 if (this.state.pass == false) { 
+		 if (this.state.pass === false) { 
 			return ( <Flash text={msg} status={status} /> )
 		 }
 	}
@@ -133,7 +131,7 @@ class Header extends Component {
 				</div>
 
 				<div className="header-body" style={ {height:this.state.headerMobile} }>
-					<div  ref={ (input) => this.loginRow = input }  className="header-body-inner" style={ {transform:this.state.headerMobileInner } }>
+					<div  className="header-body-inner" style={ {transform:this.state.headerMobileInner } }>
 						<div className="title-wrapper col-xxs-12 col-xs-5 col-sm-5" style={ {marginTop: this.state.headerMobileInnerMarginTop } }>
 							<h1 style={{ display: 'inline-block' }}>
 								ZIPPY <span style={{ color: 'red' }}>WHALE</span>

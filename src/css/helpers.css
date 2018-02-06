@@ -1377,6 +1377,15 @@ input[type='submit'] {
 .bold {
   font-weight: bold;
 }
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
 /*Other Helper Class*/
 .underline {
   text-decoration: underline;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import HeroImgCard from './mixins/_hero_img_card';
+import HeroImgCard from '../../mixins/heroImage/hero_img_card';
 
 class HeroImg extends Component {
 	constructor(props) {
