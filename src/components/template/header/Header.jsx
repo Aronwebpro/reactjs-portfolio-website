@@ -49,7 +49,7 @@ class Header extends Component {
 		}
 
 		axios
-		.post('/login', {
+		.post('http://localhost:8080/login', {
 			email: name,
 			password: pass
 		})
@@ -61,7 +61,6 @@ class Header extends Component {
 				this.passInput.value = '';
 				return;
 			} else if(res.data.hasOwnProperty('success') && res.data.success === true ) {
-
 				this.setState({status: 'sucess', flashMessage: res.data.message, pass:''});
 				clearTimeout(this.timeOut);
 				this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 4000);
