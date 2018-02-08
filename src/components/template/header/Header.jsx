@@ -26,9 +26,9 @@ class Header extends Component {
 	login(e) {
 		e.preventDefault();
 		const name = this.userInput.value;
-		let pass = this.passInput.value;
+		const pass = this.passInput.value;
 
-		//validation
+		//Validation
 		switch(true) {
 			case name === '' && pass === '' :
 				clearTimeout(this.timeOut);
@@ -47,32 +47,37 @@ class Header extends Component {
 				this.timeOut = setTimeout(() => { this.setState({status:''}) }, 4000);
 				return
 		}
-
+		//Ajax for authorize
 		axios
 		.post('http://localhost:8080/login', {
 			email: name,
 			password: pass
 		})
 		.then(res => { 
-			if(res.data.hasOwnProperty('error') || res.headers.hasOwnProperty('error')) {
-				this.setState({pass: '', flashMessage: res.data.error});
+
+			if (res.data.hasOwnProperty('success') && res.data.success === true ) {
+				this.setState({status: 'success', flashMessage: res.data.message});
 				clearTimeout(this.timeOut);
-				this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 4000);
-				this.passInput.value = '';
-				return;
-			} else if(res.data.hasOwnProperty('success') && res.data.success === true ) {
-				this.setState({status: 'sucess', flashMessage: res.data.message, pass:''});
-				clearTimeout(this.timeOut);
-				this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 4000);
+				this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 3000);
 				this.passInput.value = '';
 				this.userInput.value = '';
 			}
-			console.log(res);
-			this.setState({name:'', pass:''});
-			
+			this.userInput.value = '';
+			this.passInput.value = '';
 		})
 		.catch(err => {
-			this.setState({ flashMessage: 'Login Failed!', status:'error', pass:''});
+			let msg;
+			switch(err.response.status) {
+				case 401 :
+				msg = 'Username or Password incorrect!';
+				break;
+				case 403 :
+				msg = err.response.data;
+				break;
+				default :
+				msg = 'Login failed!';
+			}
+			this.setState({ flashMessage: msg, status:'error'});
 			clearTimeout(this.timeOut);
 			this.timeOut = setTimeout(() => { 	this.setState({status:''}) }, 4000);
 			this.passInput.value = '';
@@ -84,11 +89,11 @@ class Header extends Component {
 		let height = '0px';
 		let opacity = '0';
 		if (status == 'success') {
-			flash = (  <Flash text={message} status={status} shake={this.state.shake} /> );
+			flash = (  <Flash text={message} status={status} /> );
 			height = '80px';
 			opacity = '1';
 		} else if (status === 'error') {
-			flash = (  <Flash text={message} status={status} shake={this.state.shake} /> );
+			flash = (  <Flash text={message} status={status} /> );
 			height = '80px';
 			opacity = '1';
 		} else if (status === '') {
