@@ -88,8 +88,8 @@ Routes *************************************************************************
 */
 app.use('/', router);
 router.post('/register', userController.validateRegister, userController.register); 
-router.post('/login',authController.validateLogin, authController.login, authController.loginRespond);
-
+router.post('/login', authController.validateLogin, authController.login, authController.loginRespond);
+router.post('/islogin', authController.isLoggedIn );
 
 
 //Redirect if no match

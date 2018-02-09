@@ -3,6 +3,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
+import axios from 'axios';
 
 //Styles
 import './css/helpers.css';
@@ -18,13 +19,36 @@ import NotFound from './components/notfound.jsx';
 import Service from './components/Service.jsx';
 import Register from './components/Register.jsx';
 
-
+function isLoggedIn() {
+	axios
+		.post('/islogin', {
+		})
+		.then(res => { 
+			console.log(res);
+			return true;
+		})
+		.catch(err => {
+			// let msg;
+			// switch(err.response.status) {
+			// 	case 401 :
+			// 	msg = 'Username or Password incorrect!';
+			// 	break;
+			// 	case 403 :
+			// 	msg = err.response.data;
+			// 	break;
+			// 	default :
+			// 	msg = 'Login failed!';
+			// }
+			console.log(err.response);
+			return false;
+		});
+}
 
 const Root = () => {
 	return (
 		<BrowserRouter>
 			<div className="body">
-				<Header />
+				<Header isLoggedIn={ isLoggedIn }/>
 					<div className="content">
 						<Match exactly pattern="/" component={Home} />
 						<Match exactly pattern="/service" component={Service} />

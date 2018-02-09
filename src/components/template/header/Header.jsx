@@ -49,7 +49,7 @@ class Header extends Component {
 		}
 		//Ajax for authorize
 		axios
-		.post('http://localhost:8080/login', {
+		.post('/login', {
 			email: name,
 			password: pass
 		})
@@ -139,7 +139,9 @@ class Header extends Component {
 			});
 		}
 	}
-	render() {	
+	render() {
+		const isLoggedIn = this.props.isLoggedIn();	
+		console.log(isLoggedIn);
 		return (
 			<header style={{ top: this.state.top, position: 'fixed' }}>
 				<div className="top-row">
