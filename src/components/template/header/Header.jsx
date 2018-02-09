@@ -9,8 +9,6 @@ class Header extends Component {
 		super();
 		this.login = this.login.bind(this);
 		this.stickHeader = this.stickHeader.bind(this);
-		this.getUserValue = this.getUserValue.bind(this);
-		this.getPass = this.getPass.bind(this);
 		this.flash = this.flash.bind(this);
 		this.timeOut = '';
 		this.state = {
@@ -108,15 +106,6 @@ class Header extends Component {
 			</div>
 		)
 	}
-	getUserValue(e) {
-		this.setState({name: e.target.value })
-	}
-	getPass(e) {
-		this.setState({pass: e.target.value })
-	}
-	componentDidMount() {
-		window.addEventListener('scroll', this.stickHeader);
-	}
 	stickHeader() {
 		const top = window.scrollY;
 		if (top > 100) {
@@ -138,6 +127,9 @@ class Header extends Component {
 				headerMobileInner: 'scale(1)' 
 			});
 		}
+	}
+	componentDidMount() {
+		window.addEventListener('scroll', this.stickHeader);
 	}
 	render() {	
 		return (
