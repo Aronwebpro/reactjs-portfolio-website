@@ -1,9 +1,10 @@
 //Dependencies
-import React from 'react';
+import React, {Component} from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
+import { CookiesProvider } from 'react-cookie';
 
 //Styles
 import './css/helpers.css';
@@ -18,48 +19,52 @@ import Home from './components/pages/home/Home.jsx';
 import NotFound from './components/notfound.jsx';
 import Service from './components/Service.jsx';
 import Register from './components/Register.jsx';
+import Dashboard from './components/pages/dashboard/Dashboard.jsx';
 
-function isLoggedIn() {
-	axios
-		.post('/islogin', {
-		})
-		.then(res => { 
-			console.log(res);
-			return true;
-		})
-		.catch(err => {
-			// let msg;
-			// switch(err.response.status) {
-			// 	case 401 :
-			// 	msg = 'Username or Password incorrect!';
-			// 	break;
-			// 	case 403 :
-			// 	msg = err.response.data;
-			// 	break;
-			// 	default :
-			// 	msg = 'Login failed!';
-			// }
-			console.log(err.response);
-			return false;
-		});
-}
 
-const Root = () => {
-	return (
-		<BrowserRouter>
-			<div className="body">
-				<Header isLoggedIn={ isLoggedIn }/>
-					<div className="content">
-						<Match exactly pattern="/" component={Home} />
-						<Match exactly pattern="/service" component={Service} />
-						<Match exactly pattern="/register" component={Register} />
-						<Match exactly pattern="/not-found"  component={NotFound} />
-						<Miss component={NotFound} />
-					</div>
-				<Footer />
-			</div>
-		</BrowserRouter>
-	);
+
+class Root extends Component {
+	constructor() {
+		super();
+		this.isLoggedIn = this.isLoggedIn.bind(this); 
+		this.state = {user:'unAuthorized'};
+	}
+	componentWillMount() {
+		//this.isLoggedIn();
+	}
+	isLoggedIn() {
+		axios
+			.post('http://localhost:8080/islogin', {
+			})
+			.then(res => { 
+				this.setState({user:'Authorized'});
+
+			})
+			.catch(err => {
+				this.setState({user:'Authorized'});
+			});
+	}
+	render() {
+		const isLoggedIn = false;
+		return (
+			<BrowserRouter>
+				<div className="body">
+					<Header isLoggedIn={ true } />
+						<div className="content">
+							<Match exactly pattern="/" render={ () => <Home isLoggedIn={ isLoggedIn } /> } />
+							<Match exactly pattern="/service" render={ () => <Service isLoggedIn={ isLoggedIn } /> } />
+							<Match exactly pattern="/register" component={Register}/>
+							<CookiesProvider>
+							<Match exactly pattern="/dashboard" render={ () => <Dashboard isLoggedIn={ isLoggedIn } /> }/>
+							</CookiesProvider>
+							<Match exactly pattern="/not-found"  component={NotFound} />
+							<Miss component={NotFound} />
+						</div>
+					<Footer />
+				</div>
+			</BrowserRouter>
+		);
+	}
 };
 
 //Render the App

@@ -20,6 +20,7 @@ class Header extends Component {
 			status: '',
 			shake:''
 		};
+		
 	}
 	login(e) {
 		e.preventDefault();
@@ -47,7 +48,7 @@ class Header extends Component {
 		}
 		//Ajax for authorize
 		axios
-		.post('/login', {
+		.post('http://localhost:8080/login', {
 			email: name,
 			password: pass
 		})
@@ -62,6 +63,7 @@ class Header extends Component {
 			}
 			this.userInput.value = '';
 			this.passInput.value = '';
+			this.setState({user:'Authorized'});
 		})
 		.catch(err => {
 			let msg;
@@ -129,12 +131,9 @@ class Header extends Component {
 		}
 	}
 	componentDidMount() {
-		window.addEventListener('scroll', this.stickHeader);
+		window.addEventListener('scroll', this.stickHeader);	
 	}
-	render() {
-		const isLoggedIn = this.props.isLoggedIn();	
-		console.log(isLoggedIn);
-
+	render() {	
 		return (
 			<header style={{ top: this.state.top, position: 'fixed' }}>
 				<div className="top-row">

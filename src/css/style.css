@@ -51,8 +51,10 @@ a:active {
 	background-position: center;*/
 }
 .content {
-	padding-top: 110px;	
+	padding-top: 130px;
+	min-height: 90vh;	
 }
+
 
 /* ********************* Navigation *********************************** */
 .menu-wrapper {
