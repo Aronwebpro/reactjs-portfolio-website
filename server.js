@@ -41,7 +41,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-//**Wes Bos
 // Exposes a bunch of methods for validating data. Used heavily on userController.validateRegister
 app.use(expressValidator());
 
@@ -93,28 +92,13 @@ router.post('/islogin', authController.isLoggedIn );
 
 
 //Redirect if no match
-router.get('*', (req, res, next) => {
+router.all('*', (req, res, next) => {
 	res.sendFile(path.join(__dirname, '/build/index.html'));
 });
 
 /*
 ***************************************************************************************
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
  
@@ -125,26 +109,3 @@ app.listen(port, () => {
 });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-//bybis zino
-// router.get('/', (req, res) => {
-// 	res.json({message: 'API Initialized!'});
-// });
-// app.use('/', router);
-
-
-//Render our build folder as static files
-// router.get('/', (req, res) => {
-// 	res.sendFile(path.join(__dirname, 'build', 'index.html'));
-// });
