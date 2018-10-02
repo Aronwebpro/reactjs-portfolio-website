@@ -16,6 +16,7 @@
     "foreman": "^2.0.0",
     "g": "^2.0.1",
     "marked": "^0.3.19",
+    "marked": "^0.3.12",
     "md5": "^2.2.1",
     "mongoose": "^5.3.1",
     "mongoose-mongodb-errors": "0.0.2",
