@@ -100,10 +100,6 @@ router.all('*', (req, res, next) => {
 ***************************************************************************************
 */
 
-
- 
-
-
 app.listen(port, () => {
 	console.log('App Running on port ' + port);
 });

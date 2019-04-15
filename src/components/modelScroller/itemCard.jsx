@@ -23,11 +23,11 @@ class Item extends Component {
 	}
 }
 
-Item.PropTypes = {
-	key: PropTypes.number.required,
-	title: PropTypes.string.required,
+Item.propTypes = {
+	key: PropTypes.number.isRequired,
+	title: PropTypes.string.isRequired,
 	adTitle: PropTypes.string,
-	img: PropTypes.string.required,
+	img: PropTypes.string.isRequired,
 	link: PropTypes.string,
 	alt: PropTypes.string
 };

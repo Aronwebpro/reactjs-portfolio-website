@@ -6,7 +6,7 @@ class Flash extends Component {
         let color;
         setTimeout(() => { 
             this.flash.style.animation = 'none';
-            this.flash.offsetHeight;
+            this.flash.offsetHeight = null;
             this.flash.style.animation = null;
 
         },100);
