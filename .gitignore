@@ -18,6 +18,9 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.env.vars
+.env
+vars.env
 
 npm-debug.log*
 yarn-debug.log*
@@ -26,3 +29,4 @@ yarn-error.log*
 README2.md
 .idea/
 .idea/*/**
+
